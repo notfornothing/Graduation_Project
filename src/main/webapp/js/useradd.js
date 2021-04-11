@@ -131,7 +131,7 @@ $(function(){
 	phone.bind("focus",function(){
 		validateTip(phone.next(),{"color":"#666666"},"* 请输入手机号",false);
 	}).bind("blur",function(){
-		var patrn=/^(13[0-9]|15[0-9]|18[0-9])\d{8}$/;
+		var patrn=/^[1-9]\d*$/;
 		if(phone.val().match(patrn)){
 			validateTip(phone.next(),{"color":"green"},imgYes,true);
 		}else{

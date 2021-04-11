@@ -59,7 +59,7 @@ $(function(){
 	proPhone.on("focus",function(){
 		validateTip(proPhone.next(),{"color":"#666666"},"* 请输入手机号",false);
 	}).on("blur",function(){
-		var patrn=/^(13[0-9]|15[0-9]|18[0-9])\d{8}$/;
+		var patrn=/^[1-9]\d*$/;
 		if(proPhone.val().match(patrn)){
 			validateTip(proPhone.next(),{"color":"green"},imgYes,true);
 		}else{
