@@ -1,7 +1,6 @@
 #.idea配置文件夹
 .idea
 .idea/
-*.iml
 *.ipr
 *.iws
 .classpath
