@@ -206,7 +206,8 @@ public class UserServlet extends HttpServlet {
 			throws ServletException, IOException {
 		//判断用户账号是否可用
 		String userCode = request.getParameter("userCode");
-		
+
+		//fixxxxxxxxxxxxxxxx
 		HashMap<String, String> resultMap = new HashMap<String, String>();
 		if(StringUtils.isNullOrEmpty(userCode)){
 			//userCode == null || userCode.equals("")

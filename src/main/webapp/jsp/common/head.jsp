@@ -21,8 +21,7 @@
 </header>
 <!--时间-->
 <section class="publicTime">
-    <span id="time">2015年1月1日 11:11  星期一</span>
-    <a href="#">温馨提示：为了能正常浏览，请使用高版本浏览器！（IE10+）</a>
+    <span id="time">2021年1月1日 11:11  星期一</span>
 </section>
 <!--主体内容-->
 <section class="publicMian ">
@@ -30,26 +29,42 @@
         <h2 class="leftH2"><span class="span1"></span>功能列表 <span></span></h2>
         <nav>
             <ul class="list">
+                <%--  fixed --%>
 
-                <li><a style='background: url("../images/zd.png") 0  center no-repeat;'
-                       href="${pageContext.request.contextPath }/jsp/bill.do?method=query">订单管理</a></li>
-                <li><a style='background: url("../images/gys.png") 0  center no-repeat;'
-                       href="${pageContext.request.contextPath }/jsp/provider.do?method=query">进货管理</a></li>
-                <%--               need to fix fixlater --%>
-                <%--    库存管理--%>
-                <li><a style='background: url("../images/kucun.png") 0  center no-repeat;'
-                       href="${pageContext.request.contextPath }/jsp/provider.do?method=query">库存管理</a></li>
-                <%--               need to fix --%>
-                <%--    用户管理--%>
-                <li><a style='background: url("../images/yh.png") 0  center no-repeat;'
-                       href="${pageContext.request.contextPath }/jsp/user.do?method=query">用户管理</a></li>
-                <%--    密码修改--%>
-                <li><a style='background: url("../images/mm.png") 0  center no-repeat;'
-                       href="${pageContext.request.contextPath }/jsp/pwdmodify.jsp">密码修改</a></li>
-                <%--    退出系统--%>
-                <li><a style='background: url("../images/tc.png") 0  center no-repeat;'
-                       href="${pageContext.request.contextPath }/jsp/logout.do">退出系统</a></li>
-                <%--                fixed--%>
+                <%--   1 是管理员             --%>
+                <%--   2 是采购员             --%>
+                <%--   3 是销售员             --%>
+                <c:if test="${userSession!= null }">
+
+                    <c:if test="${userSession.userRole==3||userSession.userRole==1}">
+                        <%--   订单管理 --%>
+                        <li><a style='background: url("../images/zd.png") 0  center no-repeat;'
+                               href="${pageContext.request.contextPath }/jsp/bill.do?method=query">订单管理</a></li>
+                    </c:if>
+
+                    <c:if test="${userSession.userRole==2||userSession.userRole==1}">
+                        <%--    进货管理--%>
+                        <li><a style='background: url("../images/gys.png") 0  center no-repeat;'
+                               href="${pageContext.request.contextPath }/jsp/provider.do?method=query">进货管理</a></li>
+                        <%--               need to fix fixlater --%>
+                        <%--    库存管理--%>
+                        <li><a style='background: url("../images/kucun.png") 0  center no-repeat;'
+                               href="${pageContext.request.contextPath }/jsp/provider.do?method=query">库存管理</a></li>
+                        <%--    need to fix --%>
+                    </c:if>
+                    <c:if test="${userSession.userRole==1}">
+                        <%--    用户管理--%>
+                        <li><a style='background: url("../images/yh.png") 0  center no-repeat;'
+                               href="${pageContext.request.contextPath }/jsp/user.do?method=query">用户管理</a></li>
+                    </c:if>
+                    <%--    密码修改--%>
+                    <li><a style='background: url("../images/mm.png") 0  center no-repeat;'
+                           href="${pageContext.request.contextPath }/jsp/pwdmodify.jsp">密码修改</a></li>
+                    <%--    退出系统--%>
+                    <li><a style='background: url("../images/tc.png") 0  center no-repeat;'
+                           href="${pageContext.request.contextPath }/jsp/logout.do">退出系统</a></li>
+                    <%--                fixed--%>
+                </c:if>
             </ul>
         </nav>
     </div>
