@@ -100,7 +100,7 @@ input {
     margin-left: 70px;
 }
 
-/*/!*登录页登录和重置按钮*!/.providerView a是供应商管理页面下信息查看也得返回按钮的样式*/
+/*/!*登录页登录和重置按钮*!/.providerView a是进货管理页面下信息查看也得返回按钮的样式*/
 input[type='submit'], input[type='reset'], .providerView a {
     width: 30%;
     cursor: pointer;
@@ -166,7 +166,7 @@ input[type='reset']:active, input[type='reset']:focus, .providerView a:hover, .p
     color: #5a656c;
 }
 
-/*供应商管理页面*/
+/*进货管理页面*/
 .providerTable {
     width: 100%;
     border: 1px solid #ccc;
@@ -202,7 +202,7 @@ input[type='reset']:active, input[type='reset']:focus, .providerView a:hover, .p
 
 }
 
-/*供应商管理页面-->下面的信息查看页面*/
+/*进货管理页面-->下面的信息查看页面*/
 .providerView {
     margin: 20px 0;
     font-size: 18px;
@@ -227,7 +227,7 @@ input[type='reset']:active, input[type='reset']:focus, .providerView a:hover, .p
     top: 60px;
 }
 
-/*供应商管理页面-->供应商添加页面*/
+/*进货管理页面-->供应商添加页面*/
 .providerAdd {
     border: 1px solid #9ac70f;
     padding: 20px;

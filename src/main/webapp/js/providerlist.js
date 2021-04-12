@@ -1,6 +1,6 @@
 var providerObj;
 
-//供应商管理页面上点击删除按钮弹出删除框(providerlist.jsp)
+//进货管理页面上点击删除按钮弹出删除框(providerlist.jsp)
 function deleteProvider(obj){
 	$.ajax({
 		type:"GET",

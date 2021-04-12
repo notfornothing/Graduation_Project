@@ -14,10 +14,11 @@
 					 
 					 <span>用户角色：</span>
 					 <select name="queryUserRole">
+<%--						 fix later--%>
 						<c:if test="${roleList != null }">
 						   <option value="0">--请选择--</option>
 						   <c:forEach var="role" items="${roleList}">
-						   		<option <c:if test="${role.id == queryUserRole }">selected="selected"</c:if>
+						   		<option> <c:if test="${role.id == queryUserRole }">selected="selected"</c:if>
 						   		value="${role.id}">${role.roleName}</option>
 						   </c:forEach>
 						</c:if>
