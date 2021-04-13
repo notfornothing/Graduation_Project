@@ -33,7 +33,7 @@ public class LogoutServlet extends HttpServlet {
 			throws ServletException, IOException {
 		//清除session
 		request.getSession().removeAttribute(Constants.USER_SESSION);
-		response.sendRedirect(request.getContextPath()+"/login2.jsp");
+		response.sendRedirect(request.getContextPath()+"/login.jsp");
 	}
 
 	@Override
