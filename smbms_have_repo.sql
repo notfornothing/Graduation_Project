@@ -5,13 +5,13 @@
  Source Server Type    : MySQL
  Source Server Version : 50540
  Source Host           : localhost:3306
- Source Schema         : smbms_repo
+ Source Schema         : smnbms_repo
 
  Target Server Type    : MySQL
  Target Server Version : 50540
  File Encoding         : 65001
 
- Date: 16/04/2021 19:06:20
+ Date: 16/04/2021 20:00:25
 */
 
 SET NAMES utf8mb4;
@@ -105,11 +105,11 @@ DROP TABLE IF EXISTS `smbms_repo`;
 CREATE TABLE `smbms_repo`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `total` decimal(20, 2) NULL DEFAULT NULL,
-  `unit` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `providerName` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `providerCode` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `unit` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
+  `providerName` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
+  `providerCode` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of smbms_repo

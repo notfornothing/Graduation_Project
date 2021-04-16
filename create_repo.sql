@@ -1,12 +1,23 @@
-CREATE table smbms_repo
-(
-    id           int PRIMARY KEY, -- 主键  后期要和bill的添加相等的多(看是否  能添加) 余量是否够.
-    total        DECIMAL(20, 2),  -- 商品剩余数量
-    -- 这里后期用total=total-bill.productCount
-    unit         varchar(10),-- productUnit 和bill一样.bill不能改了弄好先.
-    providerName VARCHAR(20),-- 供应商名字
-    providerCode varchar(20)      -- 供应商编号
-);
+DROP TABLE if EXISTS smbms_repo;
+-- CREATE table smbms_repo
+-- (
+--     id           int PRIMARY KEY, -- 主键  后期要和bill的添加相等的多(看是否  能添加) 余量是否够.
+--     total        DECIMAL(20, 2),  -- 商品剩余数量
+--     -- 这里后期用total=total-bill.productCount
+--     unit         varchar(10),-- productUnit 和bill一样.bill不能改了弄好先.
+--     providerName VARCHAR(20),-- 供应商名字
+--     providerCode varchar(20)      -- 供应商编号
+-- );
+CREATE TABLE smbms_repo(
+  `id` int(11) NOT NULL AUTO_INCREMENT, -- 主键  后期要和bill的添加相等的多(看是否  能添加) 余量是否够.
+  `total` decimal(20,2) DEFAULT NULL,-- 商品剩余数量
+  -- 这里后期用total=total-bill.productCount
+  `unit` varchar(10) DEFAULT NULL,-- productUnit 和bill一样.bill不能改了弄好先.
+  `providerName` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,-- 供应商名字
+  `providerCode` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,-- 供应商编号
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
+
 use smnbms_repo ;
 insert into smbms_repo value (3, 2500, '斤', (select proName from smbms_provider where smbms_provider.id = 6),(select proCode from smbms_provider where smbms_provider.id = 6));
 insert into smbms_repo value (5, 2500, '瓶', (select proName from smbms_provider where smbms_provider.id = 9),(select proCode from smbms_provider where smbms_provider.id = 9));
