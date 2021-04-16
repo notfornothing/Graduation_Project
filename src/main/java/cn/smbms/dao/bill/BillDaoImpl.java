@@ -79,8 +79,7 @@ public class BillDaoImpl implements BillDao {
 	}
 
 	@Override
-	public int deleteBillById(Connection connection, String delId)
-			throws Exception {
+	public int deleteBillById(Connection connection, String delId) throws Exception {
 		// TODO Auto-generated method stub
 		PreparedStatement pstm = null;
 		int flag = 0;
@@ -159,7 +158,7 @@ public class BillDaoImpl implements BillDao {
 			}
 			BaseDao.closeResource(null, pstm, rs);
 		}
-		
+
 		return count;
 	}
 }
