@@ -4,7 +4,7 @@
  <div class="right">
         <div class="location">
             <strong>你现在所在的位置是:</strong>
-            <span>进货管理页面 >> 信息查看</span>
+            <span>商品信息管理页面 >> 信息查看</span>
         </div>
         <div class="providerView">
             <p><strong>供应商编码：</strong><span>${provider.proCode }</span></p>

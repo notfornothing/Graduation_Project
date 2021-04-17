@@ -5,7 +5,7 @@
 <div class="right">
         <div class="location">
             <strong>你现在所在的位置是:</strong>
-            <span>进货管理页面 >> 供应商添加页面</span>
+            <span>商品信息管理页面 >> 供应商添加页面</span>
         </div>
         <div class="providerAdd">
            <form id="providerForm" name="providerForm" method="post" action="${pageContext.request.contextPath }/jsp/provider.do">

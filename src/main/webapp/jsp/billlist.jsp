@@ -5,7 +5,7 @@
 <div class="right">
        <div class="location">
            <strong>你现在所在的位置是:</strong>
-           <span>销售管理页面</span>
+           <span>进货销售管理界面</span>
        </div>
        <div class="search">
        <form method="get" action="${pageContext.request.contextPath }/jsp/bill.do">

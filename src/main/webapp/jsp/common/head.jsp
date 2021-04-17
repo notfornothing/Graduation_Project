@@ -39,13 +39,13 @@
                     <c:if test="${userSession.userRole==3||userSession.userRole==1}">
                         <%--   订单管理 --%>
                         <li><a style='background: url("../images/zd.png") 0  center no-repeat;'
-                               href="${pageContext.request.contextPath }/jsp/bill.do?method=query">订单管理</a></li>
+                               href="${pageContext.request.contextPath }/jsp/bill.do?method=query">进货销售管理</a></li>
                     </c:if>
 
                     <c:if test="${userSession.userRole==2||userSession.userRole==1}">
-                        <%--    进货管理--%>
+                        <%--    商品信息管理--%>
                         <li><a style='background: url("../images/gys.png") 0  center no-repeat;'
-                               href="${pageContext.request.contextPath }/jsp/provider.do?method=query">进货管理</a></li>
+                               href="${pageContext.request.contextPath }/jsp/provider.do?method=query">商品信息管理</a></li>
                         <%--               need to fix fixlater --%>
                         <%--    库存管理--%>
                         <li><a style='background: url("../images/kucun.png") 0  center no-repeat;'
