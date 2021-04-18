@@ -49,7 +49,7 @@
                         <%--               need to fix fixlater --%>
                         <%--    库存管理--%>
                         <li><a style='background: url("../images/kucun.png") 0  center no-repeat;'
-                               href="${pageContext.request.contextPath }/jsp/provider.do?method=query">库存管理</a></li>
+                               href="${pageContext.request.contextPath }/jsp/repo.do?method=query">库存管理</a></li>
                         <%--    need to fix --%>
                     </c:if>
                     <c:if test="${userSession.userRole==1}">
