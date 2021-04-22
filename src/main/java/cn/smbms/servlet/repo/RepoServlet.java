@@ -51,8 +51,8 @@ public class RepoServlet extends HttpServlet {
 //            this.getBillById(request,response,"billview.jsp");
 //        }else if(method != null && method.equals("modify")){
 //            this.getBillById(request,response,"billmodify.jsp");
-//        }else if(method != null && method.equals("modifysave")){
-//            this.modify(request,response);
+        } else if (method != null && method.equals("add")) {
+            this.add(request, response);
         } else if (method != null && method.equals("delrepo")) {
             this.delRepo(request, response);
         } else if (method != null && method.equals("modify")) {
@@ -64,26 +64,52 @@ public class RepoServlet extends HttpServlet {
 
     }
 
+    private void add(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        System.out.println("method=====>>add ");
+        String providerCode = request.getParameter("providerCode");
+        String providerName = request.getParameter("providerId");
+        String  billName= request.getParameter("productName");
+        String productUnit = request.getParameter("unit");
+        String total = request.getParameter("total");
+
+
+        Repo repo = new Repo();
+        repo.setId(null);
+        repo.setProviderName(providerName);
+        repo.setProviderCode(providerCode);
+        repo.setBillName(billName);
+        repo.setUnit(productUnit);
+        if (total != null) {
+            repo.setTotal(Double.parseDouble(total));
+        }
+        System.out.println(repo+"----------------------------------------");
+        boolean flag = false;
+        RepoService repoService = new RepoServiceImpl();
+        flag = repoService.add(repo);
+        System.out.println("add flag -- > " + flag);
+        if (flag) {
+            response.sendRedirect(request.getContextPath() + "/jsp/repo.do?method=query");
+        } else {
+            request.getRequestDispatcher("repoadd.jsp").forward(request, response);
+        }
+    }
+
     private void modifySave(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        System.out.println("modify===============");
+        System.out.println("modifySave===============");
 
         String id = request.getParameter("billid");
         String providerCode = request.getParameter("secretProviderCode");
         String total = request.getParameter("total");
         String unit = request.getParameter("unit");
 
-        System.out.println(id);
-        System.out.println(providerCode);
-
-        System.out.println("123123123123");
         Secret secret = new Secret();
         secret.setId(Long.parseLong(id));
         secret.setProviderCode(providerCode);
         secret.setTotal(Double.parseDouble(total));
         secret.setUnit(unit);
 
-        System.out.println(secret);
         RepoService repoService = new RepoServiceImpl();
         Boolean flag = repoService.modify(secret);
         if (flag) {
@@ -102,6 +128,8 @@ public class RepoServlet extends HttpServlet {
             RepoService repoService = new RepoServiceImpl();
             Secret secret = new Secret();
             secret = repoService.queryForOne(repoId, providerCode);
+            request.setAttribute("secretProviderCode", providerCode);
+            request.setAttribute("billid", repoId);
             request.setAttribute("secret", secret);
             request.getRequestDispatcher(url).forward(request, response);
         }
@@ -153,7 +181,7 @@ public class RepoServlet extends HttpServlet {
         if (StringUtils.isNullOrEmpty(queryProductName)) {
             queryProductName = "";
         } else {
-            secret.setProductName(queryProductName);
+            secret.setBillName(queryProductName);
         }
 
         System.out.println(secret + "+++++++++++++++++++++++++++++++++++");

@@ -29,7 +29,7 @@
             </div>
             <div>
                 <label for="productName">商品名称：</label>
-                <input type="text" name="productName" id="productName" value="${secret.productName }"
+                <input type="text" name="productName" id="productName" value="${secret.billName}"
                        readonly="readonly">
                 <font color="red"></font>
             </div>

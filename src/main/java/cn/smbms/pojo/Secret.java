@@ -6,22 +6,9 @@ public class Secret {
     private String providerCode;//-- 供应商编号
     private String providerName;//-- 供应商名字
     private String providerPhone;//-- 供应商电话
-    private String productName;// --商品名称
     private Double total; //-- 商品剩余数量-- 这里后期用total=total-bill.productCount
     private String unit;//-- 单位productUnit 和bill一样.bill不能改了弄好先.
-
-    @Override
-    public String toString() {
-        return "Secret{" +
-                "id=" + id +
-                ", providerCode='" + providerCode + '\'' +
-                ", providerName='" + providerName + '\'' +
-                ", providerPhone='" + providerPhone + '\'' +
-                ", productName='" + productName + '\'' +
-                ", total=" + total +
-                ", unit='" + unit + '\'' +
-                '}';
-    }
+    private String billName;
 
     public Long getId() {
         return id;
@@ -55,14 +42,6 @@ public class Secret {
         this.providerPhone = providerPhone;
     }
 
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
     public Double getTotal() {
         return total;
     }
@@ -79,17 +58,37 @@ public class Secret {
         this.unit = unit;
     }
 
-    public Secret(Long id, String providerCode, String providerName, String providerPhone, String productName, Double total, String unit) {
-        this.id = id;
-        this.providerCode = providerCode;
-        this.providerName = providerName;
-        this.providerPhone = providerPhone;
-        this.productName = productName;
-        this.total = total;
-        this.unit = unit;
+    public String getBillName() {
+        return billName;
+    }
+
+    public void setBillName(String billName) {
+        this.billName = billName;
+    }
+
+    @Override
+    public String toString() {
+        return "Secret{" +
+                "id=" + id +
+                ", providerCode='" + providerCode + '\'' +
+                ", providerName='" + providerName + '\'' +
+                ", providerPhone='" + providerPhone + '\'' +
+                ", total=" + total +
+                ", unit='" + unit + '\'' +
+                ", billName='" + billName + '\'' +
+                '}';
     }
 
     public Secret() {
     }
 
+    public Secret(Long id, String providerCode, String providerName, String providerPhone, Double total, String unit, String billName) {
+        this.id = id;
+        this.providerCode = providerCode;
+        this.providerName = providerName;
+        this.providerPhone = providerPhone;
+        this.total = total;
+        this.unit = unit;
+        this.billName = billName;
+    }
 }

@@ -10,6 +10,9 @@
      <div class="providerAdd">
          <form id="billForm" name="billForm" method="post" action="${pageContext.request.contextPath }/jsp/bill.do">
              <!--div的class 为error是验证错误，ok是验证成功-->
+             <div>
+                 <h2 style="color: #d43f3a"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${msg} </h2>
+             </div>
              <input type="hidden" name="method" value="add">
              <div class="">
                  <label for="billCode">订单编码：</label>
@@ -29,7 +32,7 @@
              </div>
              <div>
                  <label for="productCount">商品数量：</label>
-                 <input type="text" name="productCount" id="productCount" value=""> 
+                 <input type="text" name="productCount" id="productCount" value="">
 				 <font color="red"></font>
              </div>
              <div>

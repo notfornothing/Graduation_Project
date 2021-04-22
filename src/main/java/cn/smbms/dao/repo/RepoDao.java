@@ -32,4 +32,7 @@ public interface RepoDao {
    public Secret queryForOne(Connection connection, String repoId, String providerCode) throws Exception;
 
    public int modify(Connection connection, Secret secret) throws Exception;
+
+    Integer add(Connection connection, Repo repo) throws Exception;
+
 }

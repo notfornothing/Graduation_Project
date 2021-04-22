@@ -161,4 +161,35 @@ public class BillDaoImpl implements BillDao {
 
 		return count;
 	}
+
+	@Override
+	public Bill getBillByName(Connection connection, String productName) throws Exception {
+		// TODO Auto-generated method stub
+		Bill bill = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		if(null != connection){
+			String sql = "select b.*,p.proName as providerName from smbms_bill b, smbms_provider p " +
+					"where b.providerId = p.id and b.productName=?";
+			Object[] params = {productName};
+			rs = BaseDao.execute(connection, pstm, rs, sql, params);
+			if(rs.next()){
+				bill = new Bill();
+				bill.setId(rs.getInt("id"));
+				bill.setBillCode(rs.getString("billCode"));
+				bill.setProductName(rs.getString("productName"));
+				bill.setProductDesc(rs.getString("productDesc"));
+				bill.setProductUnit(rs.getString("productUnit"));
+				bill.setProductCount(rs.getBigDecimal("productCount"));
+				bill.setTotalPrice(rs.getBigDecimal("totalPrice"));
+				bill.setIsPayment(rs.getInt("isPayment"));
+				bill.setProviderId(rs.getInt("providerId"));
+				bill.setProviderName(rs.getString("providerName"));
+				bill.setModifyBy(rs.getInt("modifyBy"));
+				bill.setModifyDate(rs.getTimestamp("modifyDate"));
+			}
+			BaseDao.closeResource(null, pstm, rs);
+		}
+		return bill;
+	}
 }

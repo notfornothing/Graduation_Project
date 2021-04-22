@@ -62,4 +62,5 @@ public interface BillDao {
 	 */
 	public int getBillCountByProviderId(Connection connection, String providerId)throws Exception;
 
+    Bill getBillByName(Connection connection, String productName) throws Exception;
 }

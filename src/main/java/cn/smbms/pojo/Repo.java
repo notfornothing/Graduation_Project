@@ -8,51 +8,7 @@ public class Repo {
   private String unit;//-- productUnit 和bill一样.bill不能改了弄好先.
   private String providerName;//-- 供应商名字
   private String providerCode;//-- 供应商编号
-
-
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-
-  public Double getTotal() {
-    return total;
-  }
-
-  public void setTotal(Double total) {
-    this.total = total;
-  }
-
-
-  public String getUnit() {
-    return unit;
-  }
-
-  public void setUnit(String unit) {
-    this.unit = unit;
-  }
-
-
-  public String getProviderName() {
-    return providerName;
-  }
-
-  public void setProviderName(String providerName) {
-    this.providerName = providerName;
-  }
-
-
-  public String getProviderCode() {
-    return providerCode;
-  }
-
-  public void setProviderCode(String providerCode) {
-    this.providerCode = providerCode;
-  }
+  private String billName;
 
   @Override
   public String toString() {
@@ -62,6 +18,67 @@ public class Repo {
             ", unit='" + unit + '\'' +
             ", providerName='" + providerName + '\'' +
             ", providerCode='" + providerCode + '\'' +
+            ", billName='" + billName + '\'' +
             '}';
+  }
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public Double getTotal() {
+    return total;
+  }
+
+  public void setTotal(Double total) {
+    this.total = total;
+  }
+
+  public String getUnit() {
+    return unit;
+  }
+
+  public void setUnit(String unit) {
+    this.unit = unit;
+  }
+
+  public String getProviderName() {
+    return providerName;
+  }
+
+  public void setProviderName(String providerName) {
+    this.providerName = providerName;
+  }
+
+  public String getProviderCode() {
+    return providerCode;
+  }
+
+  public void setProviderCode(String providerCode) {
+    this.providerCode = providerCode;
+  }
+
+  public String getBillName() {
+    return billName;
+  }
+
+  public void setBillName(String billName) {
+    this.billName = billName;
+  }
+
+  public Repo() {
+  }
+
+  public Repo(Long id, Double total, String unit, String providerName, String providerCode, String billName) {
+    this.id = id;
+    this.total = total;
+    this.unit = unit;
+    this.providerName = providerName;
+    this.providerCode = providerCode;
+    this.billName = billName;
   }
 }

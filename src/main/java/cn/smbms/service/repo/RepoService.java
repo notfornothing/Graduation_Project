@@ -17,4 +17,6 @@ public interface RepoService {
    public Secret queryForOne(String repoId, String providerCode);
 
    public Boolean modify(Secret secret);
+
+    boolean add(Repo repo);
 }

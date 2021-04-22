@@ -29,7 +29,7 @@
             <input name="queryProductName" type="text" value="${queryProductName}">
 
             <input value="查 询" type="submit" id="searchbutton">
-            <a href="${pageContext.request.contextPath }/jsp/billadd.jsp">添加库存</a>
+            <a href="${pageContext.request.contextPath }/jsp/repoadd.jsp">添加库存</a>
         </form>
     </div>
     <!--账单表格 样式和供应商公用-->
@@ -60,7 +60,7 @@
                 <span>${secret.providerPhone}</span>
             </td>
             <td>
-                <span>${secret.productName}</span>
+                <span>${secret.billName}</span>
             </td>
             <td>
                 <span>${secret.total}</span>
@@ -71,7 +71,7 @@
             <td>
                     <span><a class="modifyBill" href="javascript:;" billid=${secret.id }  secretProviderCode=${secret.providerCode} billcc=${secret.id} ><img
                             src="${pageContext.request.contextPath }/images/xiugai.png" alt="修改" title="修改"/></a></span>
-                <span><a class="deleteBill" href="javascript:;" billid=${secret.id } billcc=${secret.productName}><img
+                <span><a class="deleteBill" href="javascript:;" billid=${secret.id } billcc=${secret.billName}><img
                         src="${pageContext.request.contextPath }/images/schu.png" alt="删除" title="删除"/></a></span>
             </td>
             </tr>

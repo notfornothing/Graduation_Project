@@ -4,6 +4,9 @@ import cn.smbms.pojo.Bill;
 
 import java.util.List;
 
+/**
+ * @author 79895
+ */
 public interface BillService {
 	/**
 	 * 增加订单
@@ -41,5 +44,6 @@ public interface BillService {
 	 * @return
 	 */
 	public boolean modify(Bill bill);
-	
+
+	Bill findByName(String productName);
 }

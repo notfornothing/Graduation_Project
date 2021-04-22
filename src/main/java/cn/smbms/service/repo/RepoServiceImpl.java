@@ -7,6 +7,7 @@ import cn.smbms.pojo.Repo;
 import cn.smbms.pojo.Secret;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 public class RepoServiceImpl implements RepoService {
@@ -112,5 +113,34 @@ public class RepoServiceImpl implements RepoService {
         }
         return flag;
 
+    }
+
+    @Override
+    public boolean add(Repo repo) {
+        // TODO Auto-generated method stub
+        boolean flag = false;
+        Connection connection = null;
+        try {
+            connection = BaseDao.getConnection();
+            connection.setAutoCommit(false);//开启JDBC事务管理
+            if(repoDao.add(connection,repo) > 0) {
+                flag = true;
+            }
+            connection.commit();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            try {
+                System.out.println("rollback==================");
+                connection.rollback();
+            } catch (SQLException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+        }finally{
+            //在service层进行connection连接的关闭
+            BaseDao.closeResource(connection, null, null);
+        }
+        return flag;
     }
 }

@@ -119,4 +119,22 @@ public class BillServiceImpl implements BillService {
 		return flag;
 	}
 
+	@Override
+	public Bill findByName(String productName) {
+		// TODO Auto-generated method stub
+		Bill bill = null;
+		Connection connection = null;
+		try{
+			connection = BaseDao.getConnection();
+			bill = billDao.getBillByName(connection, productName);
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			bill = null;
+		}finally{
+			BaseDao.closeResource(connection, null, null);
+		}
+		return bill;
+	}
+
 }
